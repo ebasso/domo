@@ -16,7 +16,7 @@ You must enable
 
 Domo.py generate reports using show stats output.
 
-Follow instructions [IBM Domino: Monitoring the health of you Domino Server using HTTP and show stats] (http://ebasso.net/wiki/index.php?title=IBM_Domino:_Monitoring_the_health_of_you_Domino_Server_using_HTTP_and_show_stats).
+Follow instructions [IBM Domino: Monitoring the health of you Domino Server using HTTP and show stats](http://ebasso.net/wiki/index.php?title=IBM_Domino:_Monitoring_the_health_of_you_Domino_Server_using_HTTP_and_show_stats).
 
 ## Configuration
 
