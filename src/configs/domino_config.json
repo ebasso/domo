@@ -1,0 +1,14 @@
+{
+  "plugin_class": "domino_stats",
+  "servers": [{
+      "name": "mailserver1",
+      "host": "https://mailserver1.company.com",
+      "notesdata": "/domino/notesdata"
+    },
+    {
+      "name": "mailserver2",
+      "host": "https://mailserver2.company.com",
+      "notesdata": "/domino/notesdata"
+    }
+  ]
+}

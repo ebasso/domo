@@ -1,0 +1,55 @@
+{
+   "servers": [
+      {
+         "host": "https://mailserver1.company.com", 
+         "statistics": {
+            "Domino.Cache.Design.MaxSize": 768, 
+            "Domino.Cache.Design.DisplaceRate.status": "Bad", 
+            "Domino.Cache.Design.HitRate.status": "Good", 
+            "NET.GroupCache.status_help": "", 
+            "NET.GroupCache.status": "Good", 
+            "Stats.Time.Start": "05/10/2018 15:48:32 ZW3", 
+            "Domino.Cache.User Cache.HitRate": 71.52, 
+            "Domino.Cache.User Cache.DisplaceRate.status": "Good", 
+            "Domino.Cache.User Cache.HitRate.status": "Bad", 
+            "NET.GroupCache": "Used (383930) < Size (392436)", 
+            "Domino.Cache.User Cache.DisplaceRate": 0.0, 
+            "Domino.Cache.Design.HitRate": 94.7, 
+            "Domino.Cache.Design.DisplaceRate": 5.3, 
+            "Domino.Cache.User Cache.MaxSize": 16384, 
+            "Stats.Time.Current": "06/04/2018 15:40:48 ZW3", 
+            "Server.ElapsedTime": "24 days 23:51:42", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver1", 
+         "notesdata": "/domino/notesdata"
+      }, 
+      {
+         "host": "https://mailserver2.company.com", 
+         "statistics": {
+            "Domino.Cache.Design.MaxSize": 1024, 
+            "Domino.Cache.Design.DisplaceRate.status": "Bad", 
+            "Domino.Cache.Design.HitRate.status": "Good", 
+            "NET.GroupCache.status_help": "", 
+            "NET.GroupCache.status": "Good", 
+            "Stats.Time.Start": "05/02/2018 23:10:33 ZW3", 
+            "Domino.Cache.User Cache.HitRate": 75.71, 
+            "Domino.Cache.User Cache.DisplaceRate.status": "Good", 
+            "Domino.Cache.User Cache.HitRate.status": "Bad", 
+            "NET.GroupCache": "Used (5288798) < Size (5428698)", 
+            "Domino.Cache.User Cache.DisplaceRate": 0.0, 
+            "Domino.Cache.Design.HitRate": 94.67, 
+            "Domino.Cache.Design.DisplaceRate": 5.33, 
+            "Domino.Cache.User Cache.MaxSize": 16384, 
+            "Stats.Time.Current": "06/04/2018 15:39:23 ZW3", 
+            "Server.ElapsedTime": "32 days 16:26:43", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver2", 
+         "notesdata": "/domino/notesdata"
+      }
+   ], 
+   "now": "2018-06-13 21:39", 
+   "server_count": 2, 
+   "title": "Domino Statistics"
+}

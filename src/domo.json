@@ -1,0 +1,4 @@
+{
+    "config_files": ["configs/domino_config.json", "configs/sametime_config.json"],
+    "www_root_directory": "wwwroot/pages"
+}

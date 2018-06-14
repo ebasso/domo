@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    {% block title %} {%- if not title -%} 'Lorem Ipsum Title' {%- else -%} {{title}} {%- endif -%} {% endblock %}
+  </title>
+
+  {% block stylesheets %}
+  <!-- Bootstrap Core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="../dist/css/rotate.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> {% endblock %}
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  {# for extra stylesheets. e.q. a template has to add something #} {% block head_css_extra %} {% endblock %} {# for various
+  extra things#} {% block head_extra %} {% endblock %}
+</head>
+
+<body>
+  <div id="wrapper">
+    {% block header %} {% endblock %}
+    <!-- /#container-fluid -->
+    {% block navigation %} {% endblock %} {% include "navigation.html" ignore missing %}
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        {% block content %} {% endblock %}
+      </div>
+      <!-- /#container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+    {% block footer %}{% endblock %}
+  </div>
+  <!-- /#wrapper -->
+  {% block javascript %}
+  <!-- jQuery -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../dist/js/sb-admin-2.js"></script>
+  {% endblock %}
+  {% block body_javascript %} 
+  {% endblock %}
+  <script>
+    function toBootstrap(status, title) {
+
+      if (status == 'Excelent') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Good') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Warning') {
+        return '<i class="fa fa-info-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Bad') {
+        return '<i class="fa fa-times-circle text-danger" title="' + title + '" ></i>';
+      }
+      if (status == 'Disabled') {
+        return '<i class="fa fa-circle text-primary" title="' + title + '" ></i>';
+      }
+      if (status == 'Attention') {
+        return '<i class="fa fa-exclamation-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Need Investigation') {
+        return '<i class="fa fa-question-circle text-warning" title="' + title + '" ></i>';
+      }
+      return '';
+    }
+
+    function renderStat(name, stats) {
+      var status = stats[name + ".status"];
+      var status_help = '';
+      if (stats[name + ".status_help"] !== undefined) {
+        status_help = ' -- ' + stats[name + ".status_help"]
+      }
+      var title = name + ' = ' + stats[name] + ' [' + status + ']' + status_help;
+
+      return toBootstrap(status, title);
+    }
+  </script>
+</body>
+
+</html>

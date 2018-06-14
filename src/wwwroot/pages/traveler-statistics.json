@@ -1,0 +1,69 @@
+{
+   "percDevicesGreen": 64, 
+   "countDevicesGray": 31, 
+   "countDevicesYellow": 7, 
+   "title": "Traveler Statistics", 
+   "percDevicesYellow": 5, 
+   "countDevices": 125, 
+   "percDevicesGray": 24, 
+   "devices": [
+      {
+         "username": "User A", 
+         "lastSynctime": "2017-02-06 16:20:02", 
+         "lastPushtime": "2017-02-06 16:16:13", 
+         "httpStatus": "200", 
+         "deviceProvider": "iPhone 7", 
+         "deviceId": "111119LQ3CVARA18HNKBM44C"
+      }, 
+      {
+         "username": "User B", 
+         "lastSynctime": "2017-02-06 16:19:58", 
+         "lastPushtime": "2017-02-06 16:09:35", 
+         "httpStatus": "499", 
+         "deviceProvider": "iPad Air 2", 
+         "deviceId": "F11111IRRH7PLABNP1RRA0Q730"
+      }, 
+      {
+         "username": "User C", 
+         "lastSynctime": "2017-02-06 16:19:57", 
+         "lastPushtime": "2017-02-06 16:16:31", 
+         "httpStatus": "499", 
+         "deviceProvider": "iPhone 6", 
+         "deviceId": "IM9OQD6411111BFE7J8FG64RE8"
+      }
+   ], 
+   "servers": [
+      {
+         "status": "Green", 
+         "ai": "97", 
+         "name": "Trsrv086/Company", 
+         "devices": "78", 
+         "user": "35"
+      }, 
+      {
+         "status": "Yellow", 
+         "ai": "100", 
+         "name": "Trsrv087/Company", 
+         "devices": "0", 
+         "user": "0"
+      }, 
+      {
+         "status": "Yellow", 
+         "ai": "100", 
+         "name": "Trsrv084/Company", 
+         "devices": "53", 
+         "user": "31"
+      }, 
+      {
+         "status": "Red", 
+         "ai": "100", 
+         "name": "Trsrv085/Company", 
+         "devices": "2", 
+         "user": "1"
+      }
+   ], 
+   "countDevicesGreen": 80, 
+   "countDevicesRed": 7, 
+   "now": "2018-06-13 21:39", 
+   "percDevicesRed": 5
+}

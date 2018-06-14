@@ -1,0 +1,35 @@
+{
+   "servers": [
+      {
+         "host": "https://mailserver1.company.com", 
+         "statistics": {
+            "Stats.Time.Start": "05/10/2018 15:48:32 ZW3", 
+            "Mail.Mailbox.Accesses": 55016, 
+            "Mail.Mailbox.AccessConflicts.status": "Excelent", 
+            "Mail.Mailbox.AccessConflicts": 0, 
+            "Stats.Time.Current": "06/04/2018 15:40:48 ZW3", 
+            "Server.ElapsedTime": "24 days 23:51:42", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver1", 
+         "notesdata": "/domino/notesdata"
+      }, 
+      {
+         "host": "https://mailserver2.company.com", 
+         "statistics": {
+            "Stats.Time.Start": "05/02/2018 23:10:33 ZW3", 
+            "Mail.Mailbox.Accesses": 112001, 
+            "Mail.Mailbox.AccessConflicts.status": "Excelent", 
+            "Mail.Mailbox.AccessConflicts": 0, 
+            "Stats.Time.Current": "06/04/2018 15:39:23 ZW3", 
+            "Server.ElapsedTime": "32 days 16:26:43", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver2", 
+         "notesdata": "/domino/notesdata"
+      }
+   ], 
+   "now": "2018-06-13 21:39", 
+   "server_count": 2, 
+   "title": "Domino Statistics"
+}

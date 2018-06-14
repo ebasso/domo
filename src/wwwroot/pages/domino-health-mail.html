@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    Domino Statistics  </title>
+
+    <!-- Bootstrap Core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="../dist/css/rotate.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+       </head>
+
+<body>
+  <div id="wrapper">
+         <!-- /#container-fluid -->
+      <!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html">Colaboracao 2018</a>
+  </div>
+  <!-- /.navbar-header -->
+
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+      <ul class="nav" id="side-menu">
+        <li>
+          <a href="dashboard.html">
+            <i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-tasks fa-fw"></i> Disk Report
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <a href="report-disks.html">Disk Usage - Details</a>
+            </li>
+            <!--
+            <li>
+              <a href="report-disks-2.html">Disk Usage by Server</a>
+            </li>
+            -->
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-building fa-fw"></i> Domino Health
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <a href="domino-health-general.html">General Health</a>
+            </li>
+            <li>
+              <a href="domino-health-mail.html">Mail Health</a>
+            </li>
+            <li>
+              <a href="domino-health-cluster.html">Cluster Health</a>
+            </li>
+            <li>
+              <a href="domino-health-http.html">HTTP Health</a>
+            </li>
+            <!--
+            <li>
+              <a href="health.html">Disk Health</a>
+            </li>
+            -->
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+  </div>
+  <!-- /.navbar-static-side -->
+</nav>    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header" id="domo-page-title">Loading ...</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+  <div class="col-lg-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Domino Total Servers
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
+          <span style="font-size: 75%;color: #777">1</span>
+        </span>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+  <div class="col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Export Files
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <ul>
+          <li>
+            <a href="domino-health-mail.json">domino-health-mail.json</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Domino Health
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <table width="100%" class="table table-header-rotated">
+          <thead id="domo-thead-update">
+            <tr>
+              <th>Server</th>
+              <th class="rotate-45"><div><span>Mail.MailBoxes.AccessConflicts</span></div></th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody id="domo-tbody-update">
+            <tr>
+              <td>ServerName</td>
+              <td><i class="fa fa-check-circle text-success" data-toggle="tooltip" data-placement="top" title="Server.Trans.PerMinute: 677.0 [Good]"></i></td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+      </div>
+      <!-- /#container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+      </div>
+  <!-- /#wrapper -->
+    <!-- jQuery -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../dist/js/sb-admin-2.js"></script>
+    <script>
+  $.getJSON('domino-health-mail.json', function (data) {
+    console.log(data);
+    $('#domo-page-title').html(data.title + ' - ' + data.now);
+
+    var output = '';
+    $.each(data.servers, function (key, val) {
+      console.log(val);
+      output += '<tr><td>' + val.name + '</td>';
+      //_status_mailboxes
+      output += '<td>' + renderStat("Mail.Mailbox.AccessConflicts",val.statistics) + '</td>';
+      output += '<td>&nbsp;</td>';
+      output += '<td>&nbsp;</td>';
+      output += '<td>&nbsp;</td>';
+      output += '<td>.</td>';
+      output += '</tr>';
+    });
+    $('#domo-tbody-update').html(output);
+  });
+
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+</script>
+  <script>
+    function toBootstrap(status, title) {
+
+      if (status == 'Excelent') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Good') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Warning') {
+        return '<i class="fa fa-info-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Bad') {
+        return '<i class="fa fa-times-circle text-danger" title="' + title + '" ></i>';
+      }
+      if (status == 'Disabled') {
+        return '<i class="fa fa-circle text-primary" title="' + title + '" ></i>';
+      }
+      if (status == 'Attention') {
+        return '<i class="fa fa-exclamation-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Need Investigation') {
+        return '<i class="fa fa-question-circle text-warning" title="' + title + '" ></i>';
+      }
+      return '';
+    }
+
+    function renderStat(name, stats) {
+      var status = stats[name + ".status"];
+      var status_help = '';
+      if (stats[name + ".status_help"] !== undefined) {
+        status_help = ' -- ' + stats[name + ".status_help"]
+      }
+      var title = name + ' = ' + stats[name] + ' [' + status + ']' + status_help;
+
+      return toBootstrap(status, title);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+Report: Disk Report
+
+mailserver1
+|- /domino/notesdata
+|-- Used  : 60.99GB
+|-- Size  : 159.92GB
+|-- Perc  : 38.14
+|- /domino/notesdata/daos
+|-- Used  : 270.08GB
+|-- Size  : 549.73GB
+|-- Perc  : 49.13
+|- /domino/notesdata/fulltext
+|-- Used  : 194.26GB
+|-- Size  : 229.90GB
+|-- Perc  : 84.5
+|- /domino/notesdata/logdir
+|-- Used  : 3.72GB
+|-- Size  : 149.92GB
+|-- Perc  : 2.48
+|- /domino/notesdata/mail
+|-- Used  : 429.19GB
+|-- Size  : 1.46TB
+|-- Perc  : 28.63
+|- /opt
+|-- Used  : 5.28GB
+|-- Size  : 49.99GB
+|-- Perc  : 10.57
+|- /var/log
+|-- Used  : 1.83GB
+|-- Size  : 9.87GB
+|-- Perc  : 18.51
+
+mailserver2
+|- /domino/notesdata
+|-- Used  : 68.65GB
+|-- Size  : 159.92GB
+|-- Perc  : 42.93
+|- /domino/notesdata/daos
+|-- Used  : 452.88GB
+|-- Size  : 1023.50GB
+|-- Perc  : 44.25
+|- /domino/notesdata/fulltext
+|-- Used  : 346.42GB
+|-- Size  : 849.63GB
+|-- Perc  : 40.77
+|- /domino/notesdata/logdir
+|-- Used  : 928.30MB
+|-- Size  : 149.92GB
+|-- Perc  : 0.6
+|- /domino/notesdata/mail
+|-- Used  : 705.45GB
+|-- Size  : 1.95TB
+|-- Perc  : 35.29
+|- /opt
+|-- Used  : 5.28GB
+|-- Size  : 49.99GB
+|-- Perc  : 10.56
+|- /var/log
+|-- Used  : 2.52GB
+|-- Size  : 24.87GB
+|-- Perc  : 10.13
+

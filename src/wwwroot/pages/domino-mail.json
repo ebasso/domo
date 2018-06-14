@@ -1,0 +1,71 @@
+{
+   "servers": [
+      {
+         "host": "https://mailserver1.company.com", 
+         "statistics": {
+            "Mail.DeliveredSize.1KB_to_10KB": 45591, 
+            "Mail.TransferredSize.Under_1KB": 12131, 
+            "Mail.TransferredSize.1MB_to_10MB": 4372, 
+            "Stats.Time.Start": "05/10/2018 15:48:32 ZW3", 
+            "Mail.TotalRouted.NRPC": 361116, 
+            "Mail.DeliveredSize.1MB_to_10MB": 19151, 
+            "Mail.TotalRouted.SMTP": 24139, 
+            "Mail.DeliveredSize.Under_1KB": 7165, 
+            "Mail.TotalRouted": 385255, 
+            "Server.ElapsedTime": "24 days 23:51:42", 
+            "Server.Name": "CN=mailserver1/O=Company", 
+            "Mail.DeliveredSize.Over_100MB": 0, 
+            "Mail.TransferredSize.10MB_to_100MB": 482, 
+            "Mail.Transferred": 80413, 
+            "Mail.TransferredSize.Over_100MB": 0, 
+            "Mail.Delivered": 291719, 
+            "Mail.Transferred.NRPC": 61264, 
+            "Mail.DeliveredSize.100KB_to_1MB": 92890, 
+            "Mail.TransferredSize.1KB_to_10KB": 12020, 
+            "Mail.DeliveredSize.10KB_to_100KB": 125845, 
+            "Mail.DeliveredSize.10MB_to_100MB": 1077, 
+            "Mail.Transferred.SMTP": 19149, 
+            "Mail.TransferredSize.100KB_to_1MB": 16091, 
+            "Stats.Time.Current": "06/04/2018 15:40:48 ZW3", 
+            "Mail.TransferredSize.10KB_to_100KB": 35317
+         }, 
+         "name": "mailserver1", 
+         "notesdata": "/domino/notesdata"
+      }, 
+      {
+         "host": "https://mailserver2.company.com", 
+         "statistics": {
+            "Mail.DeliveredSize.1KB_to_10KB": 143522, 
+            "Mail.TransferredSize.Under_1KB": 23072, 
+            "Mail.TransferredSize.1MB_to_10MB": 8076, 
+            "Stats.Time.Start": "05/02/2018 23:10:33 ZW3", 
+            "Mail.TotalRouted.NRPC": 815440, 
+            "Mail.DeliveredSize.1MB_to_10MB": 32081, 
+            "Mail.TotalRouted.SMTP": 53784, 
+            "Mail.DeliveredSize.Under_1KB": 21025, 
+            "Mail.TotalRouted": 869224, 
+            "Server.ElapsedTime": "32 days 16:26:43", 
+            "Server.Name": "CN=mailserver1/O=Company", 
+            "Mail.DeliveredSize.Over_100MB": 0, 
+            "Mail.TransferredSize.10MB_to_100MB": 865, 
+            "Mail.Transferred": 169798, 
+            "Mail.TransferredSize.Over_100MB": 0, 
+            "Mail.Delivered": 663497, 
+            "Mail.Transferred.NRPC": 132238, 
+            "Mail.DeliveredSize.100KB_to_1MB": 159220, 
+            "Mail.TransferredSize.1KB_to_10KB": 23488, 
+            "Mail.DeliveredSize.10KB_to_100KB": 305430, 
+            "Mail.DeliveredSize.10MB_to_100MB": 2219, 
+            "Mail.Transferred.SMTP": 37560, 
+            "Mail.TransferredSize.100KB_to_1MB": 33440, 
+            "Stats.Time.Current": "06/04/2018 15:39:23 ZW3", 
+            "Mail.TransferredSize.10KB_to_100KB": 80857
+         }, 
+         "name": "mailserver2", 
+         "notesdata": "/domino/notesdata"
+      }
+   ], 
+   "now": "2018-06-13 21:39", 
+   "server_count": 2, 
+   "title": "Domino Mail"
+}

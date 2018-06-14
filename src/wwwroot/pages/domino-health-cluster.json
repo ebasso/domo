@@ -1,0 +1,49 @@
+{
+   "servers": [
+      {
+         "host": "https://mailserver1.company.com", 
+         "statistics": {
+            "Replica.Cluster.SecondsOnQueue": 0, 
+            "Replica.Cluster.WorkQueueDepth": 0, 
+            "Replica.Cluster.SecondsOnQueue.Avg.status": "Excelent", 
+            "Stats.Time.Start": "05/10/2018 15:48:32 ZW3", 
+            "Replica.Cluster.SecondsOnQueue.Max": 15, 
+            "Replica.Cluster.WorkQueueDepth.status": "Excelent", 
+            "Replica.Cluster.WorkQueueDepth.Avg": 1, 
+            "Replica.Cluster.WorkQueueDepth.Avg.status": "Excelent", 
+            "Replica.Cluster.WorkQueueDepth.Max": 228, 
+            "Replica.Cluster.SecondsOnQueue.Avg": 0, 
+            "Replica.Cluster.SecondsOnQueue.status": "Excelent", 
+            "Stats.Time.Current": "06/04/2018 15:40:48 ZW3", 
+            "Server.ElapsedTime": "24 days 23:51:42", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver1", 
+         "notesdata": "/domino/notesdata"
+      }, 
+      {
+         "host": "https://mailserver2.company.com", 
+         "statistics": {
+            "Replica.Cluster.SecondsOnQueue": 0, 
+            "Replica.Cluster.WorkQueueDepth": 0, 
+            "Replica.Cluster.SecondsOnQueue.Avg.status": "Excelent", 
+            "Stats.Time.Start": "05/02/2018 23:10:33 ZW3", 
+            "Replica.Cluster.SecondsOnQueue.Max": 16, 
+            "Replica.Cluster.WorkQueueDepth.status": "Excelent", 
+            "Replica.Cluster.WorkQueueDepth.Avg": 2, 
+            "Replica.Cluster.WorkQueueDepth.Avg.status": "Excelent", 
+            "Replica.Cluster.WorkQueueDepth.Max": 515, 
+            "Replica.Cluster.SecondsOnQueue.Avg": 0, 
+            "Replica.Cluster.SecondsOnQueue.status": "Excelent", 
+            "Stats.Time.Current": "06/04/2018 15:39:23 ZW3", 
+            "Server.ElapsedTime": "32 days 16:26:43", 
+            "Server.Name": "CN=mailserver1/O=Company"
+         }, 
+         "name": "mailserver2", 
+         "notesdata": "/domino/notesdata"
+      }
+   ], 
+   "now": "2018-06-13 21:39", 
+   "server_count": 2, 
+   "title": "Domino Statistics"
+}

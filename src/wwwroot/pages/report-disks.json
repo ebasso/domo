@@ -1,0 +1,160 @@
+{
+   "environment_used_total_human": "2.49TB", 
+   "title": "Disk Report", 
+   "environment_used_total_perc": 36.89, 
+   "environment_size_total_human": "6.74TB", 
+   "servers": [
+      {
+         "disks_size_total_human": "2.59TB", 
+         "name": "mailserver1", 
+         "notesdata": "/domino/notesdata", 
+         "disks_used_total": 1036523642948.0, 
+         "disks": [
+            {
+               "used": 65484001280.0, 
+               "free": 106226614272.0, 
+               "used_human": "60.99GB", 
+               "size_human": "159.92GB", 
+               "used_perc": 38.14, 
+               "label": "/domino/notesdata", 
+               "size": 171710615552.0
+            }, 
+            {
+               "used": 289994358784.0, 
+               "free": 300271095808.0, 
+               "used_human": "270.08GB", 
+               "size_human": "549.73GB", 
+               "used_perc": 49.13, 
+               "label": "/domino/notesdata/daos", 
+               "size": 590265454592.0
+            }, 
+            {
+               "used": 208579989504.0, 
+               "free": 38271582208.0, 
+               "used_human": "194.26GB", 
+               "size_human": "229.90GB", 
+               "used_perc": 84.5, 
+               "label": "/domino/notesdata/fulltext", 
+               "size": 246851571712.0
+            }, 
+            {
+               "used": 3993673728.0, 
+               "free": 156984766464.0, 
+               "used_human": "3.72GB", 
+               "size_human": "149.92GB", 
+               "used_perc": 2.48, 
+               "label": "/domino/notesdata/logdir", 
+               "size": 160978440192.0
+            }, 
+            {
+               "used": 460836626500.0, 
+               "free": 1148968718300.0, 
+               "used_human": "429.19GB", 
+               "size_human": "1.46TB", 
+               "used_perc": 28.63, 
+               "label": "/domino/notesdata/mail", 
+               "size": 1609805344800.0
+            }, 
+            {
+               "used": 5672742912.0, 
+               "free": 48003862528.0, 
+               "used_human": "5.28GB", 
+               "size_human": "49.99GB", 
+               "used_perc": 10.57, 
+               "label": "/opt", 
+               "size": 53676605440.0
+            }, 
+            {
+               "used": 1962250240.0, 
+               "free": 8638853120.0, 
+               "used_human": "1.83GB", 
+               "size_human": "9.87GB", 
+               "used_perc": 18.51, 
+               "label": "/var/log", 
+               "size": 10601103360.0
+            }
+         ], 
+         "disks_used_total_human": "965.34GB", 
+         "host": "https://mailserver1.company.com", 
+         "disks_size_total": 2843889135648.0, 
+         "disks_used_total_perc": 36.45
+      }, 
+      {
+         "disks_size_total_human": "4.16TB", 
+         "name": "mailserver2", 
+         "notesdata": "/domino/notesdata", 
+         "disks_used_total": 1698781954128.0, 
+         "disks": [
+            {
+               "used": 73716985856.0, 
+               "free": 97993629696.0, 
+               "used_human": "68.65GB", 
+               "size_human": "159.92GB", 
+               "used_perc": 42.93, 
+               "label": "/domino/notesdata", 
+               "size": 171710615552.0
+            }, 
+            {
+               "used": 486277648428.0, 
+               "free": 612692918272.0, 
+               "used_human": "452.88GB", 
+               "size_human": "1023.50GB", 
+               "used_perc": 44.25, 
+               "label": "/domino/notesdata/daos", 
+               "size": 1098970566700.0
+            }, 
+            {
+               "used": 371962568704.0, 
+               "free": 540316381184.0, 
+               "used_human": "346.42GB", 
+               "size_human": "849.63GB", 
+               "used_perc": 40.77, 
+               "label": "/domino/notesdata/fulltext", 
+               "size": 912278949888.0
+            }, 
+            {
+               "used": 973389824.0, 
+               "free": 160005050368.0, 
+               "used_human": "928.30MB", 
+               "size_human": "149.92GB", 
+               "used_perc": 0.6, 
+               "label": "/domino/notesdata/logdir", 
+               "size": 160978440192.0
+            }, 
+            {
+               "used": 757475672100.0, 
+               "free": 1388938440700.0, 
+               "used_human": "705.45GB", 
+               "size_human": "1.95TB", 
+               "used_perc": 35.29, 
+               "label": "/domino/notesdata/mail", 
+               "size": 2146414112800.0
+            }, 
+            {
+               "used": 5670514688.0, 
+               "free": 48006090752.0, 
+               "used_human": "5.28GB", 
+               "size_human": "49.99GB", 
+               "used_perc": 10.56, 
+               "label": "/opt", 
+               "size": 53676605440.0
+            }, 
+            {
+               "used": 2705174528.0, 
+               "free": 24002056192.0, 
+               "used_human": "2.52GB", 
+               "size_human": "24.87GB", 
+               "used_perc": 10.13, 
+               "label": "/var/log", 
+               "size": 26707230720.0
+            }
+         ], 
+         "disks_used_total_human": "1.55TB", 
+         "host": "https://mailserver2.company.com", 
+         "disks_size_total": 4570736521292.0, 
+         "disks_used_total_perc": 37.17
+      }
+   ], 
+   "now": "2018-06-13 21:39", 
+   "server_count": 2
+}

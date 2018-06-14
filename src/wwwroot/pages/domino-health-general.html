@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    Domino Statistics  </title>
+
+    <!-- Bootstrap Core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+  <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="../dist/css/rotate.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+       </head>
+
+<body>
+  <div id="wrapper">
+         <!-- /#container-fluid -->
+      <!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html">Colaboracao 2018</a>
+  </div>
+  <!-- /.navbar-header -->
+
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+      <ul class="nav" id="side-menu">
+        <li>
+          <a href="dashboard.html">
+            <i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-tasks fa-fw"></i> Disk Report
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <a href="report-disks.html">Disk Usage - Details</a>
+            </li>
+            <!--
+            <li>
+              <a href="report-disks-2.html">Disk Usage by Server</a>
+            </li>
+            -->
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-building fa-fw"></i> Domino Health
+            <span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level">
+            <li>
+              <a href="domino-health-general.html">General Health</a>
+            </li>
+            <li>
+              <a href="domino-health-mail.html">Mail Health</a>
+            </li>
+            <li>
+              <a href="domino-health-cluster.html">Cluster Health</a>
+            </li>
+            <li>
+              <a href="domino-health-http.html">HTTP Health</a>
+            </li>
+            <!--
+            <li>
+              <a href="health.html">Disk Health</a>
+            </li>
+            -->
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+  </div>
+  <!-- /.navbar-static-side -->
+</nav>    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header" id="domo-page-title">Loading ...</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+  <div class="col-lg-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Domino Total Servers
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
+          <span style="font-size: 75%;color: #777">2</span>
+        </span>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+  <div class="col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Export Files
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <ul>
+          <li>
+            <a href="domino-health-general.json">domino-health-general.json</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Domino Health
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <table width="100%" class="table table-header-rotated">
+          <thead id="domo-thead-update">
+            <tr>
+              <th>Server</th>
+              <th style="width:140px">Elapsed.Time</th>
+              <th class="rotate-45"><div><span>Server.AvailabilityIndex</span></div></th>
+              <th class="rotate-45"><div><span>Server.Trans.PerMinute</span></div></th>
+              <th class="rotate-45"><div><span>Server.ConcurrentTasks.Waiting</span></div></th>
+              <th>&nbsp;</th>
+              <th class="rotate-45"><div><span>Database.DB.BP.PCRIB</span></div></th>
+              <th class="rotate-45"><div><span>Database.DbCache</span></div></th>
+              <th class="rotate-45"><div><span>Database.DbCache.Over...</span></div></th>
+              <th>&nbsp;</th>
+              <th class="rotate-45"><div><span>Database.NAMELookupCache.1</span></div></th>
+              <th class="rotate-45"><div><span>Database.NAMELookupCache.2</span></div></th>
+              <th class="rotate-45"><div><span>Database.NAMELookupCache.3</span></div></th>
+              <th>&nbsp;</th>
+              <th class="rotate-45"><div><span>PF.PgFile.Total.PctUtil.Avg</span></div></th>
+              <th class="rotate-45"><div><span>Update.PendingList</span></div></th>
+            </tr>
+          </thead>
+          <tbody id="domo-tbody-update">
+            <tr>
+              <td>ServerName</td>
+              <td>
+                <i class="fa fa-check-circle text-success" title="Server.AvailabilityIndex: 63.0 [Good]"></i>
+              </td>
+              <td>
+                <i class="fa fa-check-circle text-success" data-toggle="tooltip" data-placement="top" title="Server.Trans.PerMinute: 677.0 [Good]"></i>
+              </td>
+              <td>
+                <i class="fa fa-check-circle text-success" data-toggle="tooltip" data-placement="top" title="Database.NAMELookupCache Database.NAMELookupCache - dnlcp_used= 71522336.0 , dnlcp_peak= 134217728.0 , hitrate=
+                53.2882928848 [Good]"></i>
+              </td>
+              <td>
+                <i class="fa fa-check-circle text-success" data-toggle="tooltip" data-placement="top" title="Domino.Cache.User Cache.HitRate: 17.6680984774 , maxsize= 8,192 [Bad"></i>
+              </td>
+              <td>
+                <i class="fa fa-info-circle text-success" data-toggle="tooltip" data-placement="top" title="Database.NAMELookupCache Database.NAMELookupCache - dnlcp_used= 71522336.0 , dnlcp_peak= 134217728.0 , hitrate=
+                53.2882928848 [Good]"></i>
+              </td>
+              <td>
+                <i class="fa fa-question-circle text-primary" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+              <td>
+                <i class="fa fa-check-circle text-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+              <td>
+                <i class="fa fa-check-circle text-warning" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+              <td>
+                <i class="fa fa-times-circle text-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+              <td>
+                <i class="fa fa-circle text-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+              <td>
+                <i class="fa fa-circle text-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+      </div>
+      <!-- /#container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+      </div>
+  <!-- /#wrapper -->
+    <!-- jQuery -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../dist/js/sb-admin-2.js"></script>
+    <script>
+  $.getJSON('domino-health-general.json', function (data) {
+    console.log(data);
+    $('#domo-page-title').html(data.title + ' - ' + data.now);
+
+    var output = '';
+    $.each(data.servers, function (key, val) {
+      console.log(val);
+      output += '<tr><td>' + val.name + '</td>';
+      output += '<td style="width:140px">' + val.statistics["Server.ElapsedTime"] + '</td>';
+      //_status_server_performance
+      output += '<td>' + renderStat("Server.AvailabilityIndex",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Server.Trans.PerMinute",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Server.ConcurrentTasks.Waiting",val.statistics) + '</td>';
+      output += '<td>&nbsp;</td>';
+      //_status_buffer_pool
+      output += '<td>' + renderStat("Database.Database.BufferPool.PerCentReadsInBuffer",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Database.DbCache",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Database.DbCache.OvercrowdingRejections",val.statistics) + '</td>';
+      output += '<td>&nbsp;</td>';
+      //_status_database_namelookupcache
+      output += '<td>' + renderStat("Database.NAMELookupCache.1",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Database.NAMELookupCache.2",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Database.NAMELookupCache.3",val.statistics) + '</td>';
+      output += '<td>&nbsp;</td>';
+      //_status_platform_pagingfile
+      output += '<td>' + renderStat("Platform.PagingFile.Total.PctUtil.Avg",val.statistics) + '</td>';
+      //_status_updall
+      output += '<td>' + renderStat("Update.PendingList",val.statistics) + '</td>';
+      output += '<td>.</td>';
+      output += '</tr>';
+    });
+    $('#domo-tbody-update').html(output);
+  });
+
+  
+</script>
+  <script>
+    function toBootstrap(status, title) {
+
+      if (status == 'Excelent') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Good') {
+        return '<i class="fa fa-check-circle text-success" title="' + title + '" ></i>';
+      }
+      if (status == 'Warning') {
+        return '<i class="fa fa-info-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Bad') {
+        return '<i class="fa fa-times-circle text-danger" title="' + title + '" ></i>';
+      }
+      if (status == 'Disabled') {
+        return '<i class="fa fa-circle text-primary" title="' + title + '" ></i>';
+      }
+      if (status == 'Attention') {
+        return '<i class="fa fa-exclamation-circle text-warning" title="' + title + '" ></i>';
+      }
+      if (status == 'Need Investigation') {
+        return '<i class="fa fa-question-circle text-warning" title="' + title + '" ></i>';
+      }
+      return '';
+    }
+
+    function renderStat(name, stats) {
+      var status = stats[name + ".status"];
+      var status_help = '';
+      if (stats[name + ".status_help"] !== undefined) {
+        status_help = ' -- ' + stats[name + ".status_help"]
+      }
+      var title = name + ' = ' + stats[name] + ' [' + status + ']' + status_help;
+
+      return toBootstrap(status, title);
+    }
+  </script>
+</body>
+
+</html>
