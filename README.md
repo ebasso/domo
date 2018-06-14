@@ -20,7 +20,7 @@ Follow instructions [IBM Domino: Monitoring the health of you Domino Server usin
 
 ## Configuration
 
-Configure using **configs/domino_config.json** file, ee example included.
+Configure using **configs/domino_config.json** file, see example included.
 
 
 ## Running
