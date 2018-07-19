@@ -93,16 +93,14 @@ class DominoHealthGeneral(object):
             if (stats):
                 count += 1
                 domstats = {
-                    'Server.Name': stats['Server.Name'],
-                    'Server.ElapsedTime': stats['Server.ElapsedTime'],
-                    'Stats.Time.Current': stats['Stats.Time.Current'],
-                    'Stats.Time.Start': stats['Stats.Time.Start'],
+                    #'Server.Name': stats['Server.Name'],
+                    'Server.ElapsedTime': stats['Server.ElapsedTime']
+                    #'Stats.Time.Current': stats['Stats.Time.Current'],
+                    #'Stats.Time.Start': stats['Stats.Time.Start']
                 }
                 domstats = self._status_server_performance(stats, domstats)
                 domstats = self._status_buffer_pool(stats, domstats)
                 domstats = self._status_database_namelookupcache(stats, domstats)
-                domstats = self._status_mailboxes(stats, domstats)
-                domstats = self._status_platform_pagingfile(stats, domstats)
                 domstats = self._status_updall(stats, domstats)
                 #domstats = self._statistics_mail(stats, domstats)
 
@@ -156,7 +154,7 @@ class DominoHealthGeneral(object):
     def _status_buffer_pool(self, stats, domstats):
 
         pib = self._getStatFloat(stats, 'Database.Database.BufferPool.PerCentReadsInBuffer')
-        maxmegabytes = self._getStatFloat(stats, 'Database.Database.BufferPool.Maximum.Megabytes')
+        #maxmegabytes = self._getStatFloat(stats, 'Database.Database.BufferPool.Maximum.Megabytes')
         highwatermak = self._getStatFloat(stats, 'Database.DbCache.HighWaterMark')
         currententries = self._getStatFloat(stats, 'Database.DbCache.CurrentEntries')
         maxentries = self._getStatFloat(stats, 'Database.DbCache.MaxEntries')
@@ -194,10 +192,10 @@ class DominoHealthGeneral(object):
         domstats['Database.Database.BufferPool.PerCentReadsInBuffer.status'] = pib_txt
         if (pib_help != ''):
             domstats['Database.Database.BufferPool.PerCentReadsInBuffer.status_help'] = pib_help
-        domstats['Database.Database.BufferPool.Maximum.Megabytes'] = maxmegabytes
-        domstats['Database.DbCache.HighWaterMark'] = highwatermak
-        domstats['Database.DbCache.CurrentEntries'] = currententries
-        domstats['Database.DbCache.MaxEntries'] = maxentries
+        #domstats['Database.Database.BufferPool.Maximum.Megabytes'] = maxmegabytes
+        #domstats['Database.DbCache.HighWaterMark'] = highwatermak
+        #domstats['Database.DbCache.CurrentEntries'] = currententries
+        #domstats['Database.DbCache.MaxEntries'] = maxentries
         domstats['Database.DbCache'] = dbcache
         domstats['Database.DbCache.status'] = dbcache_txt
         if (dbcache_help != ''):
@@ -220,18 +218,23 @@ class DominoHealthGeneral(object):
         hitrate1 = dnlcp_used / dnlcp_peak * 100
         hitrate1_txt = 'Good'
         hitrate1_help = ''
-        if (hitrate1 >= 90):
+        if (hitrate1 >= 98):
             hitrate1_txt = 'Bad'
-            hitrate1_help = '# Database.NAMELookupCachePool.Used (' + str(dnlcp_used) +') is close to the Database.NAMELookupCachePool.Peak (' + str(dnlcp_peak) +') - Increase NLCache_Size - http://www-01.ibm.com/support/docview.wss?uid=swg21470902'
+            hitrate1_help = 'Database.NAMELookupCachePool.Used (' + str(dnlcp_used) +') is close to the Database.NAMELookupCachePool.Peak (' + str(dnlcp_peak) +') - Increase NLCache_Size - http://www-01.ibm.com/support/docview.wss?uid=swg21470902'
+        elif (hitrate1 >= 90):
+            hitrate1_txt = 'Warning'
+            hitrate1_help = 'Database.NAMELookupCachePool.Used (' + str(dnlcp_used) +') is close to the Database.NAMELookupCachePool.Peak (' + str(dnlcp_peak) +') - Increase NLCache_Size - http://www-01.ibm.com/support/docview.wss?uid=swg21470902'
             
 
         # Database.NAMELookupCacheMisses remains above Database.NAMELookupCacheHits for hours
-        hitrate2 = dnlcm / dnlch * 100
+        #hitrate2 = dnlcm / dnlch * 100
+        hitrate2 = 'NAMELookupCacheMisses (' + str(dnlcm) +') < NAMELookupCacheHits (' + str(dnlch) + ')'
         hitrate2_txt = 'Good'
         hitrate2_help = ''
         if (dnlcm > dnlch):
+            hitrate2 = 'NAMELookupCacheMisses (' + str(dnlcm) +') > NAMELookupCacheHits (' + str(dnlch) + ')'
             hitrate2_txt = 'Bad'
-            hitrate2_help = '# Database.NAMELookupCacheMisses (' + str(dnlcm) +') remains above Database.NAMELookupCacheHits (' + str(dnlch) +') for hours - Increase NLCache_Size - http://www-01.ibm.com/support/docview.wss?uid=swg21470902'
+            hitrate2_help = '# Database.NAMELookupCacheMisses remains above Database.NAMELookupCacheHits for hours - Increase NLCache_Size - http://www-01.ibm.com/support/docview.wss?uid=swg21470902'
             
 
         # Database.NAMELookupCacheMaxSize with Database.NAMELookupCachePool.Peak and Database.NAMELookupCachePool.Used
@@ -239,22 +242,26 @@ class DominoHealthGeneral(object):
         perc = dnlcp_used / dnlcms * 100
         perc_txt = 'Good'
         perc_help = ''
-        if (perc >= 90):
+        if (perc >= 98):
             perc_txt = 'Bad'
-            perc_help = '# Database.NAMELookupCacheMaxSize with Database.NAMELookupCachePool.Peak and Database.NAMELookupCachePool.Used # Neither value should have reached Database.NAMELookupCacheMaxSize. If the numbers are close, increase the cache size'
+            perc_help = 'Database.NAMELookupCachePool.Peak (' + str(dnlcp_peak) +') and Database.NAMELookupCachePool.Used (' + str(dnlcp_used) +') should not reach Database.NAMELookupCacheMaxSize (' + str(dnlcms) +').'
+        elif (perc >= 90):
+            perc_txt = 'Warning'
+            perc_help = 'Database.NAMELookupCachePool.Peak (' + str(dnlcp_peak) +') and Database.NAMELookupCachePool.Used (' + str(dnlcp_used) +') should not reach Database.NAMELookupCacheMaxSize (' + str(dnlcms) +').'
 
-        domstats['Database.NAMELookupCachePool.Used'] =  dnlcp_used
-        domstats['Database.NAMELookupCachePool.Peak'] =  dnlcp_peak
-        domstats['Database.NAMELookupCacheMisses'] =  dnlcm
-        domstats['Database.NAMELookupCacheHits'] =  dnlch
-        domstats['Database.NAMELookupCacheMaxSize'] =  dnlcms
-        domstats['Database.NAMELookupCache.status'] =  dnlcm
+        #domstats['Database.NAMELookupCachePool.Used'] =  dnlcp_used
+        #domstats['Database.NAMELookupCachePool.Peak'] =  dnlcp_peak
+        #domstats['Database.NAMELookupCacheMisses'] =  dnlcm
+        #domstats['Database.NAMELookupCacheHits'] =  dnlch
+        #domstats['Database.NAMELookupCacheMaxSize'] =  dnlcms
+        #domstats['Database.NAMELookupCache.status'] =  dnlcm
 
         domstats['Database.NAMELookupCache.1'] =  utilities.formatPercentFloat(hitrate1)
         domstats['Database.NAMELookupCache.1.status'] =  hitrate1_txt
         if (hitrate1_help != ''):
             domstats['Database.NAMELookupCache.1.status_help'] =  hitrate1_help
-        domstats['Database.NAMELookupCache.2'] =  utilities.formatPercentFloat(hitrate2)
+        #domstats['Database.NAMELookupCache.2'] =  utilities.formatPercentFloat(hitrate2)
+        domstats['Database.NAMELookupCache.2'] =  hitrate2
         domstats['Database.NAMELookupCache.2.status'] =  hitrate2_txt
         if (hitrate2_help != ''):
             domstats['Database.NAMELookupCache.2.status_help'] =  hitrate2_help
@@ -272,49 +279,33 @@ class DominoHealthGeneral(object):
         domstats['Database.NAMELookupCache.ContainerResets'] =  self._getStatFloat(stats, 'Database.NAMELookupCache.ContainerResets')
         return domstats
 
-    def _status_mailboxes(self, stats, domstats):
-
-        mbac = self._getStatInt(stats, 'Mail.Mailbox.AccessConflicts')
-        mba = self._getStatInt(stats, 'Mail.Mailbox.Accesses')
-        count = 0
-        if (mba > 0):
-            count = mbac / mba * 100
-
-        txt = 'Conflicts. Add mailboxes'
-        if (count < 2):
-            txt = 'Excelent'
-
-        domstats['Mail.Mailbox.AccessConflicts'] = mbac
-        domstats['Mail.Mailbox.Accesses'] = mba
-        domstats['Mail.Mailbox.AccessConflicts.status'] = txt
-        return domstats
-
-    def _status_platform_pagingfile(self, stats, domstats):
-
-        avg = self._getStatFloat(
-            stats, 'Platform.PagingFile.Total.PctUtil.Avg')
-        txt = 'Bad'
-        if (avg <= 1):
-            txt = 'Excelent'
-        elif (avg <= 10):
-            txt = 'Good'
-        domstats['Platform.PagingFile.Total.PctUtil.Avg'] = avg
-        domstats['Platform.PagingFile.Total.PctUtil.Avg.status'] = txt
-        return domstats
-
     def _status_updall(self, stats, domstats):
         # Tuning
         # Update_Fulltext_Thread=1
         # FTUPDATE_IDLE_TIME=4
         # ftg_use_sys_memory=1
-        pl = self._getStatFloat(stats, 'Update.PendingList')
-        txt = 'Bad'
+        pl = self._getStatInt(stats, 'Update.PendingList')
+        pl_txt = 'Bad'
         if (pl == 0):
-            txt = 'Excelent'
+            pl_txt = 'Excelent'
         elif (pl <= 100):
-            txt = 'Good'
+            pl_txt = 'Good'
+        elif (pl <= 500):
+            pl_txt = 'Warning'
+
+        dl = self._getStatInt(stats, 'Update.DeferredList')
+        dl_txt = 'Bad'
+        if (dl == 0):
+            dl_txt = 'Excelent'
+        elif (dl <= 100):
+            dl_txt = 'Good'
+        elif (dl <= 500):
+            dl_txt = 'Warning'
+
         domstats['Update.PendingList'] = pl
-        domstats['Update.PendingList.status'] = txt
+        domstats['Update.PendingList.status'] = pl_txt
+        domstats['Update.DeferredList'] = dl
+        domstats['Update.DeferredList.status'] = dl_txt
         return domstats
 
     def _statistics_mail(self, stats, domstats):

@@ -14,9 +14,40 @@
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
-          <span style="font-size: 75%;color: #777">1</span>
-        </span>
+        <table class="table">
+          <thead >
+            <tr>
+              <th>Statistic</th>
+              <th>Excelent</th>
+              <th>Good</th>
+              <th>Warning</th>
+              <th>Bad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mail.MailBoxes.AccessConflicts</td>
+              <td>< 2</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Mail.Waiting</td>
+              <td>= 0</td>
+              <td><= 20</td>
+              <td><= 100</td>
+              <td>> 100</td>
+            </tr>
+            <tr>
+              <td>Mail.Dead</td>
+              <td>= 0</td>
+              <td><= 20</td>
+              <td><= 100</td>
+              <td>> 100</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <!-- /.panel-body -->
     </div>
@@ -57,8 +88,8 @@
               <th>Server</th>
               <th class="rotate-45"><div><span>Mail.MailBoxes.AccessConflicts</span></div></th>
               <th>&nbsp;</th>
-              <th>&nbsp;</th>
-              <th>&nbsp;</th>
+              <th class="rotate-45"><div><span>Mail.Waiting</span></div></th>
+              <th class="rotate-45"><div><span>Mail.Dead</span></div></th>
               <th>&nbsp;</th>
             </tr>
           </thead>
@@ -95,8 +126,8 @@
       //_status_mailboxes
       output += '<td>' + renderStat("Mail.Mailbox.AccessConflicts",val.statistics) + '</td>';
       output += '<td>&nbsp;</td>';
-      output += '<td>&nbsp;</td>';
-      output += '<td>&nbsp;</td>';
+      output += '<td>' + renderStat("Mail.Waiting",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Mail.Dead",val.statistics) + '</td>';
       output += '<td>.</td>';
       output += '</tr>';
     });

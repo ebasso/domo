@@ -11,13 +11,51 @@
   <div class="col-lg-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Domino Total Servers
+        Domino Statistics
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
-          <span style="font-size: 75%;color: #777">{{server_count}}</span>
-        </span>
+        <table class="table">
+          <thead >
+            <tr>
+              <th>Statistic</th>
+              <th>Excelent</th>
+              <th>Good</th>
+              <th>Warning</th>
+              <th>Bad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Replica.Cluster.SecondsOnQueue</td>
+              <td><= 10</td>
+              <td><= 15</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Replica.Cluster.SecondsOnQueue.Avg</td>
+              <td><= 10</td>
+              <td><= 15</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Replica.Cluster.WorkQueueDepth</td>
+              <td><= 10</td>
+              <td><= 15</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Replica.Cluster.WorkQueueDepth.Avg</td>
+              <td><= 10</td>
+              <td><= 15</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <!-- /.panel-body -->
     </div>

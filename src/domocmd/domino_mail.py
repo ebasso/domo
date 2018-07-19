@@ -82,10 +82,10 @@ class DominoMail(object):
             if (stats):
                 count += 1
                 domstats = {
-                    'Server.Name': stats['Server.Name'],
-                    'Server.ElapsedTime': stats['Server.ElapsedTime'],
-                    'Stats.Time.Current': stats['Stats.Time.Current'],
-                    'Stats.Time.Start': stats['Stats.Time.Start'],
+                    #'Server.Name': stats['Server.Name'],
+                    #'Server.ElapsedTime': stats['Server.ElapsedTime'],
+                    #'Stats.Time.Current': stats['Stats.Time.Current'],
+                    #'Stats.Time.Start': stats['Stats.Time.Start'],
                 }
                 domstats = self._statistics_mail(stats, domstats)
 

@@ -19,6 +19,9 @@ import sys
 from argparse import ArgumentParser
 
 CONFIG_FILE = 'domo.json'
+#WWW_ROOT_FULLPATH = 'wwwroot/pages/'
+# Production
+WWW_ROOT_FULLPATH = '/var/www/domo/pages/'
 
 class Configuration(object):
     """
@@ -38,7 +41,7 @@ class Configuration(object):
         self.main = self.loadConfigJson(CONFIG_FILE)
         self._templates_path = '/templates/'
         self._temp_dir = 'temp/'
-        self._www_root = 'wwwroot/pages/'
+        self._www_root = WWW_ROOT_FULLPATH
 
     def _create_parser(self):
         """

@@ -14,9 +14,9 @@
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
-          <span style="font-size: 75%;color: #777">{{server_count}}</span>
-        </span>
+          <span style="font-size:28px">Servers #: &nbsp;&nbsp;
+              <span style="font-size: 75%;color: #777">{{server_count}}</span>
+            </span>
       </div>
       <!-- /.panel-body -->
     </div>
@@ -60,16 +60,16 @@
               <th class="rotate-45"><div><span>Server.Trans.PerMinute</span></div></th>
               <th class="rotate-45"><div><span>Server.ConcurrentTasks.Waiting</span></div></th>
               <th>&nbsp;</th>
-              <th class="rotate-45"><div><span>Database.DB.BP.PCRIB</span></div></th>
-              <th class="rotate-45"><div><span>Database.DbCache</span></div></th>
-              <th class="rotate-45"><div><span>Database.DbCache.Over...</span></div></th>
+              <th class="rotate-45"><div><span>DB.DB.BP.PerCentReadsInBuffer</span></div></th>
+              <th class="rotate-45"><div><span>DB.DbCache....</span></div></th>
+              <th class="rotate-45"><div><span>DB.DbCache.OverCrowding...</span></div></th>
               <th>&nbsp;</th>
-              <th class="rotate-45"><div><span>Database.NAMELookupCache.1</span></div></th>
-              <th class="rotate-45"><div><span>Database.NAMELookupCache.2</span></div></th>
-              <th class="rotate-45"><div><span>Database.NAMELookupCache.3</span></div></th>
+              <th class="rotate-45"><div><span>DB.NAMELookupCache.1</span></div></th>
+              <th class="rotate-45"><div><span>DB.NAMELookupCache.2</span></div></th>
+              <th class="rotate-45"><div><span>DB.NAMELookupCache.3</span></div></th>
               <th>&nbsp;</th>
-              <th class="rotate-45"><div><span>PF.PgFile.Total.PctUtil.Avg</span></div></th>
               <th class="rotate-45"><div><span>Update.PendingList</span></div></th>
+              <th class="rotate-45"><div><span>Update.DeferredList</span></div></th>
             </tr>
           </thead>
           <tbody id="domo-tbody-update">
@@ -105,9 +105,6 @@
                 <i class="fa fa-times-circle text-danger" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
               </td>
               <td>
-                <i class="fa fa-circle text-info" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
-              </td>
-              <td>
                 <i class="fa fa-circle text-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
               </td>
             </tr>
@@ -122,6 +119,122 @@
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Domino Statistics
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <table class="table">
+            <thead >
+              <tr>
+                <th>Statistic</th>
+                <th>Excelent</th>
+                <th>Good</th>
+                <th>Warning</th>
+                <th>Bad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Server.AvailabilityIndex</td>
+                <td>>= 90</td>
+                <td>>= 30</td>
+                <td>>= 10</td>
+                <td>< 10</td>
+              </tr>
+              <tr>
+                <td>Server.Trans.PerMinute</td>
+                <td>&nbsp;</td>
+                <td>< 10000</td>
+                <td>&nbsp;</td>
+                <td>>= 10000</td>
+              </tr>
+              <tr>
+                <td>Server.ConcurrentTasks.Waiting</td>
+                <td>&nbsp;</td>
+                <td><= 10</td>
+                <td>&nbsp;</td>
+                <td>> 10</td>
+              </tr>
+              <tr>
+                <td>Database.Database.BufferPool.PerCentReadsInBuffer</td>
+                <td>>= 97</td>
+                <td>>= 90</td>
+                <td>>= 70</td>
+                <td>< 70</td>
+              </tr>
+              <tr>
+                <td>Database.DbCache</td>
+                <td>&nbsp;</td>
+                <td>HighWaterMark < MaxEntries </td>
+                <td>&nbsp;</td>
+                <td>HighWaterMark > MaxEntries </td>
+              </tr>
+              <tr>
+                <td>Database.DbCache.OvercrowdingRejections</td>
+                <td>&nbsp;</td>
+                <td>= 0</td>
+                <td>&nbsp;</td>
+                <td>!= 0</td>
+              </tr>
+              <tr>
+                <td>Database.NAMELookupCache.1</td>
+                <td>&nbsp;</td>
+                <td>Database.NAMELookupCachePool.Used is close to the Database.NAMELookupCachePool.Peak value</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr> 
+              <tr>
+                <td>Database.NAMELookupCache.2</td>
+                <td>&nbsp;</td>
+                <td>Database.NAMELookupCacheMisses remains above Database.NAMELookupCacheHits for hours</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr> 
+              <tr>
+                <td>Database.NAMELookupCache.3</td>
+                <td>&nbsp;</td>
+                <td>
+                #Database.NAMELookupCacheMaxSize with Database.NAMELookupCachePool.Peak and Database.NAMELookupCachePool.Used
+                # Neither value should have reached Database.NAMELookupCacheMaxSize. If the numbers are close, increase the cache size
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr> 
+              <tr>
+                <td>Platform.PagingFile.Total.PctUtil.Avg</td>
+                <td><= 10</td>
+                <td><= 30</td>
+                <td><= 60</td>
+                <td>> 60</td>
+              </tr> 
+              <tr>
+                <td>Update.PendingList</td>
+                <td>= 0</td>
+                <td><= 100</td>
+                <td><= 500</td>
+                <td>> 500</td>
+              </tr> 
+              <tr>
+                <td>Update.DeferredList</td>
+                <td>= 0</td>
+                <td><= 100</td>
+                <td><= 500</td>
+                <td>> 500</td>
+              </tr> 
+            </tbody>
+          </table>
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
 {% endblock %} {% block body_javascript %}
 <script>
   $.getJSON('domino-health-general.json', function (data) {
@@ -148,10 +261,9 @@
       output += '<td>' + renderStat("Database.NAMELookupCache.2",val.statistics) + '</td>';
       output += '<td>' + renderStat("Database.NAMELookupCache.3",val.statistics) + '</td>';
       output += '<td>&nbsp;</td>';
-      //_status_platform_pagingfile
-      output += '<td>' + renderStat("Platform.PagingFile.Total.PctUtil.Avg",val.statistics) + '</td>';
       //_status_updall
       output += '<td>' + renderStat("Update.PendingList",val.statistics) + '</td>';
+      output += '<td>' + renderStat("Update.DeferredList",val.statistics) + '</td>';
       output += '<td>.</td>';
       output += '</tr>';
     });

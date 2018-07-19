@@ -53,8 +53,7 @@ class DominoHealthHttp(object):
         try:
             sout = stats[str]
             sout = sout.replace(',', '')
-            if (sout.count('+') == 0):
-                sout = sout.replace('.', '')
+            sout = sout.replace('.', '')
             return int(sout)
         except KeyError:
             return 0
@@ -63,7 +62,7 @@ class DominoHealthHttp(object):
         try:
             sout = stats[str]
             sout = sout.replace(',', '')
-            if (sout.count('+') == 0):
+            if (sout.count('.') >= 2):
                 sout = sout.replace('.', '')
             return float(sout)
         except KeyError:
@@ -89,10 +88,10 @@ class DominoHealthHttp(object):
             if (stats):
                 count += 1
                 domstats = {
-                    'Server.Name': stats['Server.Name'],
-                    'Server.ElapsedTime': stats['Server.ElapsedTime'],
-                    'Stats.Time.Current': stats['Stats.Time.Current'],
-                    'Stats.Time.Start': stats['Stats.Time.Start'],
+                    #'Server.Name': stats['Server.Name'],
+                    #'Server.ElapsedTime': stats['Server.ElapsedTime'],
+                    #'Stats.Time.Current': stats['Stats.Time.Current'],
+                    #'Stats.Time.Start': stats['Stats.Time.Start'],
                 }
                 domstats = self._status_domino_cache_design(stats, domstats)
                 domstats = self._status_domino_cache_usercache(stats, domstats)
@@ -110,17 +109,25 @@ class DominoHealthHttp(object):
 
         hitrate = self._getStatPercentFloat(stats, 'Domino.Cache.Design.HitRate')
         hitrate_status = 'Disabled'
-        if (hitrate >= 97):
+        if (hitrate >= 90):
             hitrate_status = 'Excelent'
-        elif (hitrate >= 90):
+        elif (hitrate >= 80):
             hitrate_status = 'Good'
+        elif (hitrate >= 50):
+            hitrate_status = 'Warning'
         elif (hitrate > 0):
             hitrate_status = 'Bad'
 
         displacerate = self._getStatPercentFloat(stats,  'Domino.Cache.Design.DisplaceRate')
-        displacerate_status = 'Bad'
+        displacerate_status = 'Disabled'
         if (displacerate == 0):
+            displacerate_status = 'Excelent'
+        elif (displacerate <= 10):
             displacerate_status = 'Good'
+        elif (displacerate <= 20):
+            displacerate_status = 'Warning'
+        elif (displacerate > 20):
+            displacerate_status = 'Bad'
 
         domstats['Domino.Cache.Design.HitRate'] = hitrate
         domstats['Domino.Cache.Design.HitRate.status'] = hitrate_status
@@ -150,17 +157,26 @@ class DominoHealthHttp(object):
     
         hitrate = self._getStatPercentFloat(stats, 'Domino.Cache.User Cache.HitRate')
         hitrate_status = 'Disabled'
-        if (hitrate >= 97):
+        if (hitrate >= 90):
             hitrate_status = 'Excelent'
-        elif (hitrate >= 90):
+        elif (hitrate >= 80):
             hitrate_status = 'Good'
+        elif (hitrate >= 50):
+            hitrate_status = 'Warning'
         elif (hitrate > 0):
             hitrate_status = 'Bad'
 
         displacerate = self._getStatPercentFloat(stats,  'Domino.Cache.User Cache.DisplaceRate')
-        displacerate_status = 'Bad'
+        displacerate_status = 'Disabled'
         if (displacerate == 0):
+            displacerate_status = 'Excelent'
+        elif (displacerate <= 10):
             displacerate_status = 'Good'
+        elif (displacerate <= 20):
+            displacerate_status = 'Warning'
+        elif (displacerate > 20):
+            displacerate_status = 'Bad'
+        
 
         #print('|- Domino.Cache.User Cache.HitRate: ', hitrate, ', maxsize=', maxsize, txt)
             # _status_domino_cache_usercache(server)

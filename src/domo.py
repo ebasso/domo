@@ -31,6 +31,7 @@ from domocmd.domino_health_general import DominoHealthGeneral
 from domocmd.domino_health_cluster import DominoHealthCluster
 from domocmd.domino_health_http import DominoHealthHttp
 from domocmd.domino_health_mail import DominoHealthMail
+from domocmd.domino_health_platform import DominoHealthPlatform
 from domocmd.domino_mail import DominoMail
 from domocmd.render import Render
 from domocmd.disk_render import DiskRender
@@ -82,6 +83,8 @@ if __name__ == '__main__':
         domstats = DominoHealthHttp(config, serversHttp)
         domstats.render()
         domstats = DominoHealthMail(config, serversMail)
+        domstats.render()
+        domstats = DominoHealthPlatform(config, serversMail)
         domstats.render()
         print('domino - end')
 

@@ -19,7 +19,7 @@ import domocmd.utilities as utilities
 from domocmd.render import Render
 
 
-class DominoHealthCluster(object):
+class DominoHealthPlatform(object):
 
     def __init__(self, config, servers):
         self.config = config
@@ -53,6 +53,10 @@ class DominoHealthCluster(object):
         try:
             sout = stats[str]
             sout = sout.replace(',', '')
+            if (sout.count('.') >= 2):
+                sout = sout.replace('.','')
+            #if (sout.count('+') == 0):
+            #    sout = sout.replace('.', '')
             return int(sout)
         except KeyError:
             return 0
@@ -61,13 +65,19 @@ class DominoHealthCluster(object):
         try:
             sout = stats[str]
             sout = sout.replace(',', '')
+            if (sout.count('.') >= 2):
+                sout = sout.replace('.','')
+            #if (sout.count('+') == 0):
+            #    sout = sout.replace('.', '')
             return float(sout)
         except KeyError:
             return 0.0
 
     def _getStatPercentFloat(self, stats, str):
         try:
-            B = float(stats[str])
+            sp = stats[str]
+            sp = sp.replace(',', '.')
+            B = float(sp)
             sout = '{0:.2f}'.format(B)
             sout = '{message:{fill}{align}{width}}'.format(message=sout, fill=' ', align='>', width=0)
             return float(sout)
@@ -83,12 +93,10 @@ class DominoHealthCluster(object):
             if (stats):
                 count += 1
                 domstats = {
-                    #'Server.Name': stats['Server.Name'],
-                    #'Server.ElapsedTime': stats['Server.ElapsedTime'],
-                    #'Stats.Time.Current': stats['Stats.Time.Current'],
-                    #'Stats.Time.Start': stats['Stats.Time.Start'],
+                    #'Server.Name': stats['Server.Name']
                 }
-                domstats = self._status_replica_cluster(stats, domstats)
+                domstats = self._status_platform_pagingfile(stats, domstats)
+
             server['statistics'] = domstats
         self.server_count = count
         #print('loadStats - end')
@@ -98,59 +106,28 @@ class DominoHealthCluster(object):
             print('')
             print(server['name'])
 
-    def _status_replica_cluster(self, stats, domstats):
-        secs = self._getStatInt(stats, 'Replica.Cluster.SecondsOnQueue')
-        secs_avg = self._getStatInt(
-            stats, 'Replica.Cluster.SecondsOnQueue.Avg')
-        wqd = self._getStatInt(stats, 'Replica.Cluster.WorkQueueDepth')
-        wqd_avg = self._getStatInt(stats, 'Replica.Cluster.WorkQueueDepth.Avg')
+    
+    def _status_platform_pagingfile(self, stats, domstats):
 
-        # Replica.Cluster.SecondsOnQueue
-        secs_txt = 'Bad'
-        if (secs <= 10):
-            secs_txt = 'Excelent'
-        elif (secs <= 15):
-            secs_txt = 'Good'
-
-        # Replica.Cluster.SecondsOnQueue
-        secs_avg_txt = 'Bad'
-        if (secs_avg <= 10):
-            secs_avg_txt = 'Excelent'
-        elif (secs_avg <= 15):
-            secs_avg_txt = 'Good'
-
-        # Replica.Cluster.WorkQueueDepth
-        wqd_txt = 'Bad'
-        if (wqd <= 10):
-            wqd_txt = 'Excelent'
-        elif (wqd <= 15):
-            wqd_txt = 'Good'
-
-        # Replica.Cluster.WorkQueueDepth.Avg
-        wqd_avg_txt = 'Bad'
-        if (wqd_avg <= 10):
-            wqd_avg_txt = 'Excelent'
-        elif (wqd_avg <= 15):
-            wqd_avg_txt = 'Good'
-
-        # Only Clusters
-        domstats['Replica.Cluster.SecondsOnQueue'] = secs
-        domstats['Replica.Cluster.SecondsOnQueue.status'] = secs_txt
-        domstats['Replica.Cluster.SecondsOnQueue.Avg'] = secs_avg
-        domstats['Replica.Cluster.SecondsOnQueue.Avg.status'] = secs_avg_txt
-        domstats['Replica.Cluster.SecondsOnQueue.Max'] = self._getStatInt(stats, 'Replica.Cluster.SecondsOnQueue.Max')
-        domstats['Replica.Cluster.WorkQueueDepth'] = wqd
-        domstats['Replica.Cluster.WorkQueueDepth.status'] = wqd_txt
-        domstats['Replica.Cluster.WorkQueueDepth.Avg'] = wqd_avg
-        domstats['Replica.Cluster.WorkQueueDepth.Avg.status'] = wqd_avg_txt
-        domstats['Replica.Cluster.WorkQueueDepth.Max'] = self._getStatInt(stats, 'Replica.Cluster.WorkQueueDepth.Max')
+        avg = self._getStatFloat(
+            stats, 'Platform.PagingFile.Total.PctUtil.Avg')
+        txt = 'Bad'
+        if (avg <= 10):
+            txt = 'Excelent'
+        elif (avg <= 20):
+            txt = 'Good'
+        elif (avg <= 60):
+            txt = 'Warning'
+        domstats['Platform.PagingFile.Total.PctUtil.Avg'] = avg
+        domstats['Platform.PagingFile.Total.PctUtil.Avg.status'] = txt
         return domstats
 
+    
     def render(self):
 
-        myrender = Render(self.config.templatesPath(), 'domino-health-cluster-html.tpl',
-                          self.config.wwwRoot() + 'domino-health-cluster.html')
+        myrender = Render(self.config.templatesPath(), 'domino-health-platform-html.tpl',
+                          self.config.wwwRoot() + 'domino-health-platform.html')
         myrender.render(self.context)
         myrender = Render(self.config.templatesPath(), 'json',
-                          self.config.wwwRoot() + 'domino-health-cluster.json')
+                          self.config.wwwRoot() + 'domino-health-platform.json')
         myrender.render(self.context)

@@ -83,12 +83,13 @@ class DominoHealthMail(object):
             if (stats):
                 count += 1
                 domstats = {
-                    'Server.Name': stats['Server.Name'],
-                    'Server.ElapsedTime': stats['Server.ElapsedTime'],
-                    'Stats.Time.Current': stats['Stats.Time.Current'],
-                    'Stats.Time.Start': stats['Stats.Time.Start'],
+                    #'Server.Name': stats['Server.Name'],
+                    #'Server.ElapsedTime': stats['Server.ElapsedTime'],
+                    #'Stats.Time.Current': stats['Stats.Time.Current'],
+                    #'Stats.Time.Start': stats['Stats.Time.Start']
                 }
                 domstats = self._status_mailboxes(stats, domstats)
+                domstats = self._status_mailwaiting(stats, domstats)
             server['statistics'] = domstats
         self.server_count = count
         #print('loadStats - end')
@@ -113,6 +114,41 @@ class DominoHealthMail(object):
         domstats['Mail.Mailbox.AccessConflicts'] = mbac
         domstats['Mail.Mailbox.Accesses'] = mba
         domstats['Mail.Mailbox.AccessConflicts.status'] = txt
+        return domstats
+
+    def _status_mailwaiting(self, stats, domstats):
+    
+        mw = self._getStatInt(stats, 'Mail.Waiting')
+        
+
+        if (mw == 0):
+            mw_status = 'Excelent'
+        elif (mw <= 20):
+            mw_status = 'Good'
+        elif (mw <= 100):
+            mw_status = 'Warning'
+        elif (mw > 100):
+            mw_status = 'Bad'
+
+        domstats['Mail.Waiting'] = mw
+        domstats['Mail.Waiting.status'] = mw_status
+
+
+        md = self._getStatInt(stats, 'Mail.Dead')
+        if (md == 0):
+            md_status = 'Excelent'
+        elif (md <= 20):
+            md_status = 'Good'
+        elif (md <= 100):
+            md_status = 'Warning'
+        elif (md > 100):
+            md_status = 'Bad'
+
+        domstats['Mail.Waiting'] = mw
+        domstats['Mail.Waiting.status'] = mw_status
+        domstats['Mail.Dead'] = md
+        domstats['Mail.Dead.status'] = md_status
+
         return domstats
 
     def _statistics_mail(self, stats, domstats):

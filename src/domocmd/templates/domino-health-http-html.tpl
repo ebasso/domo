@@ -10,13 +10,58 @@
   <div class="col-lg-9">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Domino Total Servers
+        Domino Statistics
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
-        <span style="font-size:28px">Servers #: &nbsp;&nbsp;
-          <span style="font-size: 75%;color: #777">{{server_count}}</span>
-        </span>
+        <table class="table">
+          <thead >
+            <tr>
+              <th>Statistic</th>
+              <th>Excelent</th>
+              <th>Good</th>
+              <th>Warning</th>
+              <th>Bad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Domino.Cache.Design.HitRate</td>
+              <td>>= 90</td>
+              <td>>= 80</td>
+              <td>>= 50</td>
+              <td>< 50</td>
+            </tr>
+            <tr>
+              <td>Domino.Cache.Design.DisplaceRate</td>
+              <td>= 0</td>
+              <td><= 10</td>
+              <td><= 20</td>
+              <td>> 20</td>
+            </tr>
+            <tr>
+              <td>Domino.Cache.UserCache.HitRate</td>
+              <td>>= 90</td>
+              <td>>= 80</td>
+              <td>>= 50</td>
+              <td>< 50</td>
+            </tr>
+            <tr>
+              <td>Domino.Cache.UserCache.DisplaceRate</td>
+              <td>= 0</td>
+              <td><= 10</td>
+              <td><= 20</td>
+              <td>> 20</td>
+            </tr>
+            <tr>
+              <td>NET.GroupCache.status</td>
+              <td>&nbsp;</td>
+              <td>Used < Size</td>
+              <td>&nbsp;</td>
+              <td>Used > Size</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <!-- /.panel-body -->
     </div>
